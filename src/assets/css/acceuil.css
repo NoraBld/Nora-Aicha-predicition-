@@ -1,6 +1,6 @@
 
 .main-banner {
-    background-image: url("../images/14.jpg");
+    background-image: url("../images/presentation1.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -25,3 +25,9 @@
     background-color: #DFC57B; /* équivalent de red-800 */
     color: #272727;
   }
+  .logo img {
+    
+    height: 70px;  /* Ajuste cette valeur */
+    width: auto;    /* Garde la largeur proportionnelle */
+  }
+  

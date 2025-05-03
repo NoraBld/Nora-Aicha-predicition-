@@ -1,75 +1,45 @@
-import React from 'react';
-import img1 from '../../assets/images/paiement5.jpg'
-import img2 from '../../assets/images/paiement6.webp'
-import img3 from '../../assets/images/paiement4.png'
+import React from "react";
+import imageLigne from '../../assets/images/carteDahabia.png';
+import imageVertical from '../../assets/images/cartecib.png'; // Remplace avec le chemin de ta deuxième image
 
 const Paiement = () => {
-    const plans = [
-        {
-            title: 'Le Plan Basique',
-            image: img1,
-            price: '0 DA',
-            features: [
-                'Lorem Ipsum Dolores Sonte',
-                'Songe Lorem Ipsum Dol',
-                'Matrios Venga Heptuss',
-                'Denim Sriracha Kogi',
-                'Digital Photography Awards',
-            ],
-        },
-        {
-            title: 'Le Plan Standard',
-            image: img2,
-            price: '6 000 DA',
-            features: [
-                'Lorem Ipsum Dolores Sonte',
-                'Songe Lorem Ipsum Dol',
-                'Matrios Venga Heptuss',
-                'Denim Sriracha Kogi',
-                'Digital Photography Awards',
-            ],
-        },
-        {
-            title: 'Le Plan Avancé',
-            image:img3,
-            price: '20 000 DA',
-            features: [
-                'Lorem Ipsum Dolores Sonte',
-                'Songe Lorem Ipsum Dol',
-                'Matrios Venga Heptuss',
-                'Denim Sriracha Kogi',
-                'Digital Photography Awards',
-            ],
-        },
-    ];
+  return (
+    <div className="flex flex-col md:flex-row h-screen" style={{ backgroundColor: "#424769" }}>
+      {/* Partie texte - 2/4 (Gauche du L) */}
+      <div className="w-full md:w-2/4 p-8 text-white z-10 flex items-center justify-center">
+        <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center leading-relaxed font-poppins">
+          Veuillez payer l'abonnement <br />
+          soit par carte magnétique <br />
+          soit par carte CIB
+        </p>
+      </div>
 
-    return (
-        <section className="pricing-plans py-16 bg-gray-50" id="pricing-plans">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h4 className="text-3xl font-semibold text-gray-800">
-                    Découvrez nos formules de prédiction et les récompenses associées  </h4>
-                </div>
-                <div className="flex flex-wrap justify-center ">
-                    {plans.map((plan, index) => (
-                        <div key={index} className="flex flex-col basis-full md:basis-1/2 lg:basis-1/3 px-2">
-                            <div className="pricing-item bg-white p-6 rounded-lg shadow-lg">
-                                <img src={plan.image} alt={plan.title} className="w-full h-48 object-cover rounded-t-lg" />
-                                <h4 className="text-xl font-semibold mt-4">{plan.title}</h4>
-                                <ul className="mt-4 space-y-2">
-                                    {plan.features.map((feature, featureIndex) => (
-                                        <li key={featureIndex} className="text-sm text-gray-700">{feature}</li>
-                                    ))}
-                                </ul>
-                                <span className="price text-xl font-bold mt-4 block">{plan.price}</span>
-                                
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+      {/* Partie décorative - 2/4 (Droite du L) */}
+      <div className="w-full md:w-2/4 h-full relative flex items-center justify-center">
+        <div className="w-full md:w-3/4 h-3/4 relative">
+          {/* Ligne horizontale */}
+          <div className="absolute right-0 top-0 w-full h-[10px] bg-gradient-to-r from-blue-500/50 via-purple-500/30 to-blue-500/50 shadow-md" />
+
+          {/* Ligne verticale */}
+          <div className="absolute left-0 bottom-0 w-[10px] h-full bg-gradient-to-b from-blue-500/50 via-purple-500/30 to-blue-500/50 shadow-md" />
+
+          {/* Carte Dahabia alignée sur la ligne verticale */}
+          <img
+            src={imageLigne}
+            alt="Décoration"
+            className="absolute left-[-120px] sm:left-[-80px] md:left-[-100px] top-[20px] sm:top-[30px] md:top-[40px] h-[calc(100%-64px)] w-auto"
+          />
+
+          {/* Carte CIB déplacée avec un espace adaptable */}
+          <img
+            src={imageVertical}
+            alt="Carte Verticale"
+            className="absolute left-[180px] sm:left-[150px] md:left-[200px] top-[60px] sm:top-[90px] md:top-[120px] h-[calc(100%-64px)] w-auto"
+          />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Paiement;
