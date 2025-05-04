@@ -4,9 +4,13 @@ import React from 'react';
 import { ProSidebarProvider } from 'react-pro-sidebar';
 import CustomSidebar from '../components/CustomSidebar';
 import Cartesinfo from '../components/dashComponent/Cartesinfo';
-import SalesChart from '../components/dashComponent/SalesChart';
+// import SalesChart from '../components/dashComponent/SalesChart';
+import PredictionGraph from '../components/dashComponent/PredictionGraph';
 import VolumeServiceChart from '../components/dashComponent/VolumeServiceChart';
 import TableauJournee from '../components/dashComponent/tableaujournee';
+import BottomStats from '../components/dashComponent/BottomStats';
+import ConsumptionTable from '../components/dashComponent/ConsumptionTable';
+import RealVsPredictedGraph from '../components/dashComponent/RealVsPredictedGraph';
 // import RevenueChart from '../components/RevenueChart';
 
 export default function Dashboard() {
@@ -117,8 +121,30 @@ export default function Dashboard() {
                 <CustomSidebar />
             </ProSidebarProvider>
 
-            <div className="flex-1 p-8 overflow-auto">
-                <h1 className="text-3xl font-bold text-gray-800 mb-8">Dashboard</h1>
+            <div className="flex-1 p-8   overflow-auto bg-neutral-200">
+        <div className="flex justify-between items-center  mb-6 rounded  p-3  bg-white shadow">
+          <h5 className="text-lg font-bold text-gray-600 ">Dashboard</h5>
+          <h5 className="text-lg font-bold text-gray-600 ">Nom de l'entreprise</h5>
+        </div>
+        <PredictionGraph data={salesData} />
+
+        <div className="flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0">
+  <div className="w-full lg:w-1/2 p-4 text-white">
+    <BottomStats />
+  </div>
+  <div className="w-full lg:w-1/2 p-4 text-white">
+    <ConsumptionTable />
+  </div>
+
+</div>
+<RealVsPredictedGraph/>
+
+       
+ 
+      </div>
+
+            {/* <div className="flex-1 p-8 overflow-auto">
+                <h1 className="text-3xl font-bold text-gray-800 mb-8">Dashboard</h1> */}
 
                 {/* Cartes */}
                 {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -126,7 +152,7 @@ export default function Dashboard() {
           <Cartesinfo title="Valeur maximale" value="9800 MW" change="+8%  d'hier" />
           <Cartesinfo title="Moyenne" value="5599" change="+4%  d'hier" />
         </div> */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <Cartesinfo
                         title="Valeur minimale"
                         value="1398 MW"
@@ -145,7 +171,7 @@ export default function Dashboard() {
                         change="+4% d'hier"
                         backgroundColor="bg-emerald-50"
                     />
-                </div>
+                </div> */}
 
 
                 {/* Graphiques */}
@@ -164,26 +190,27 @@ export default function Dashboard() {
                     </div>
                 </div>
                 */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"> */}
                     {/* Premier conteneur - Graphique */}
-                    <div className="md:col-span-2 h-full bg-white p-4 rounded-2xl shadow-md">
-                        <SalesChart data={salesData} />
-                    </div>
+                    {/* <div className="md:col-span-2 h-full bg-white p-4 rounded-2xl shadow-md"> */}
+                        {/* <PredictionGraph data={salesData} />
+                        <BottomStats/> */}
+                    {/* </div> */}
 
                     {/* Deuxième conteneur - Tableau */}
-                    <div className="md:col-span-1 h-full flex flex-col bg-white p-4 rounded-2xl shadow-md">
+                    {/* <div className="md:col-span-1 h-full flex flex-col bg-white p-4 rounded-2xl shadow-md">
                         <TableauJournee data={salesData} />
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
 
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <VolumeServiceChart data={salesData} />
+                {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> */}
+                    {/* <VolumeServiceChart data={salesData} /> */}
                     {/* <RevenueChart data={salesData} /> */}
-                    < TableauJournee data={salesData} />
+                    {/* < TableauJournee data={salesData} /> */}
 
-                </div>
-            </div>
+                {/* </div>
+            </div> */}
         </div>
     );
 }
