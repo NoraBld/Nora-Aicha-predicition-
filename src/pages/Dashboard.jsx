@@ -3,11 +3,11 @@
 import React from 'react';
 import { ProSidebarProvider } from 'react-pro-sidebar';
 import CustomSidebar from '../components/CustomSidebar';
-import Cartesinfo from '../components/dashComponent/Cartesinfo';
+// import Cartesinfo from '../components/dashComponent/Cartesinfo';
 // import SalesChart from '../components/dashComponent/SalesChart';
 import PredictionGraph from '../components/dashComponent/PredictionGraph';
-import VolumeServiceChart from '../components/dashComponent/VolumeServiceChart';
-import TableauJournee from '../components/dashComponent/tableaujournee';
+// import VolumeServiceChart from '../components/dashComponent/VolumeServiceChart';
+// import TableauJournee from '../components/dashComponent/tableaujournee';
 import BottomStats from '../components/dashComponent/BottomStats';
 import ConsumptionTable from '../components/dashComponent/ConsumptionTable';
 import RealVsPredictedGraph from '../components/dashComponent/RealVsPredictedGraph';
