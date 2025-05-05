@@ -21,7 +21,7 @@ function CustomSidebar() {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    handleResize(); // Pour appliquer au premier chargement
+    handleResize();
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -30,9 +30,24 @@ function CustomSidebar() {
     collapseSidebar();
   };
 
+  const menuStyles = {
+    button: {
+      color: '#F9B17A',
+      '&:hover': {
+        backgroundColor: '#424762',
+        color: '#F9B17A',
+      },
+    },
+    icon: {
+      color: '#F9B17A',
+      '&:hover': {
+        color: '#2D3250',
+      },
+    },
+  };
+
   return (
     <>
-      {/* Bouton burger visible uniquement sur mobile */}
       {isMobile && (
         <button 
           onClick={toggleSidebar} 
@@ -43,22 +58,13 @@ function CustomSidebar() {
       )}
 
       <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-        <Menu
-          menuItemStyles={{
-            button: {
-              color: '#fff',
-              '&:hover': {
-                backgroundColor: '#ECDCAB',
-                color: '#BF932A',
-              },
-            },
-          }}
-          
-        >
-          <div style={{ height: '60px' }}></div> {/* ESPACE AVANT PROFIL */}
-          <MenuItem component={<Link to="/profile" />} icon={<img src={LogoProfil} alt="Profil" style={{ width: '25px', height: '25px', borderRadius: '50%' }} />}
+        <Menu menuItemStyles={menuStyles}>
+          <div style={{ height: '60px' }}></div>
+          <MenuItem 
+            component={<Link to="/profile" />} 
+            icon={ <img src={LogoProfil} alt="Profil" style={{ width: '25px', height: '25px', borderRadius: '50%' }} />}
           >
-          Profil
+            Profil
           </MenuItem>
           <MenuItem icon={<FaHome />} component={<Link to="/dashboard" />}>Dashboard</MenuItem>
           <MenuItem icon={<FaCog />} component={<Link to="/prediction" />}>Prédiction</MenuItem>
@@ -67,17 +73,7 @@ function CustomSidebar() {
 
         <div style={{ flexGrow: 1 }}></div>
 
-        <Menu
-          menuItemStyles={{
-            button: {
-              color: '#fff',
-              '&:hover': {
-                backgroundColor: '#ECDCAB',
-                color: '#BF932A',
-              },
-            },
-          }}
-        >
+        <Menu menuItemStyles={menuStyles}>
           <MenuItem icon={<FaSignOutAlt />}>Déconnexion</MenuItem>
         </Menu>
       </div>
@@ -86,12 +82,3 @@ function CustomSidebar() {
 }
 
 export default CustomSidebar;
-
-
-
-
-
-
-
-
-
