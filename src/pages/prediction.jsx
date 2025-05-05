@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../components/sidebar'; 
+
 import PredBar from '../components/predComponent/predBar';
 import NewPredictionButton from '../components/predComponent/newPredictionButton';
 import GrapheSection from '../components/predComponent/grapheSection';
