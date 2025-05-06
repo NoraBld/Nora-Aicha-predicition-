@@ -39,11 +39,11 @@ const GrapheSection = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-md w-full mb-8  mt-8 flex flex-col">
+    <div className="bg-[#dddfef] border-1 border-blue-900 p-6 rounded-2xl shadow-md w-full mb-8  mt-8 flex flex-col">
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full">
         <div>
-          <h2 className="text-2xl font-bold mb-2 text-blue-950">Graphique de Prédiction</h2>
+          <h2 className="text-2xl font-bold mb-2 text-blue-950">Graphique de Prédiction SARIMA</h2>
           <p className="text-gray-500">Visualisez vos résultats ici.</p>
         </div>
 
@@ -58,7 +58,7 @@ const GrapheSection = () => {
         </select>
 
         <button
-          className="mt-4 md:mt-0 flex items-center gap-2 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded transition duration-300"
+          className="mt-4 md:mt-0 flex items-center gap-2 bg-[#2b3260] hover:bg-[#414771] text-white font-semibold py-2 px-4 rounded transition duration-300"
           onClick={downloadPDF}
         >
           <Download size={20} />
@@ -67,7 +67,7 @@ const GrapheSection = () => {
       </div>
 
       {/* Partie affichage : Graphique ou Tableau */}
-      <div ref={chartRef} className="mt-8 w-full min-h-72 bg-white p-4 rounded-lg style={{ backgroundColor: 'white' }}  ">
+      <div ref={chartRef} className="mt-8 w-full min-h-72 bg-[#dddfef]  p-4 rounded-lg style={{ backgroundColor: 'white' }}  ">
         {displayMode === 'graph' ? (
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={data}>
@@ -104,7 +104,7 @@ const GrapheSection = () => {
         {/* Bouton pour ouvrir le modal de confirmation */}
         <button 
           onClick={() => setIsConfirmModalOpen(true)}
-          className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg"
+          className="bg-[#2b3260] hover:bg-[#414771] text-white py-2 px-4 rounded-lg"
         >
           Choisir ce modèle
         </button>
@@ -112,7 +112,7 @@ const GrapheSection = () => {
         {/* Bouton pour afficher le formulaire de paiement */}
         <button 
           onClick={() => setShowPaymentForm(!showPaymentForm)}
-          className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg"
+          className="bg-[#ca9045d8]  hover:bg-green-700 text-white py-2 px-4 rounded-lg"
         >
           Acheter ce modèle
         </button>
@@ -210,97 +210,3 @@ export default GrapheSection;
 
 
 
-
-// import React, { useRef, useState } from 'react';
-// import { Download } from 'lucide-react';
-// import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
-// import html2canvas from 'html2canvas';
-// import jsPDF from 'jspdf';
-// import { usePrediction } from './PredictionContext';
-
-// const GrapheSection = () => {
-//   const chartRef = useRef();
-//   const [displayMode, setDisplayMode] = useState('graph');
-//   const { selectedData } = usePrediction();
-
-//   const downloadPDF = () => {
-//     if (!chartRef.current) return;
-
-//     html2canvas(chartRef.current, { scale: 2 }).then((canvas) => {
-//       const imgData = canvas.toDataURL('image/png');
-//       const pdf = new jsPDF({
-//         orientation: 'landscape',
-//         unit: 'px',
-//         format: [canvas.width, canvas.height],
-//       });
-//       pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-//       const filename = displayMode === 'graph' ? 'graphe-prediction.pdf' : 'tableau-prediction.pdf';
-//       pdf.save(filename);
-//     });
-//   };
-
-//   if (selectedData.length === 0) return null;
-
-//   return (
-//     <div className="bg-white p-6 rounded-2xl shadow-md w-full mt-8">
-//       <div className="flex justify-between items-center mb-4">
-//         <div>
-//           <h2 className="text-2xl font-bold text-blue-950">Graphique de Prédiction</h2>
-//           <p className="text-gray-500">Visualisez vos résultats ici.</p>
-//         </div>
-
-//         <div className="flex items-center gap-4">
-//           <select
-//             className="border border-blue-950 rounded-lg p-2 text-blue-950"
-//             value={displayMode}
-//             onChange={(e) => setDisplayMode(e.target.value)}
-//           >
-//             <option value="graph">Afficher : Graphique</option>
-//             <option value="table">Afficher : Tableau</option>
-//           </select>
-//           <button
-//             className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded"
-//             onClick={downloadPDF}
-//           >
-//             <Download size={20} /> Télécharger
-//           </button>
-//         </div>
-//       </div>
-
-//       <div ref={chartRef} className="bg-white p-4 rounded-lg min-h-72">
-//         {displayMode === 'graph' ? (
-//           <ResponsiveContainer width="100%" height={300}>
-//             <LineChart data={selectedData}>
-//               <CartesianGrid strokeDasharray="3 3" />
-//               <XAxis dataKey="Date" />
-//               <YAxis />
-//               <Tooltip />
-//               <Line type="monotone" dataKey="Valeur" stroke="#2563eb" strokeWidth={3} />
-//             </LineChart>
-//           </ResponsiveContainer>
-//         ) : (
-//           <div className="overflow-x-auto">
-//             <table className="min-w-full bg-white border border-gray">
-//               <thead>
-//                 <tr>
-//                   <th className="py-2 px-4 border-b">Date</th>
-//                   <th className="py-2 px-4 border-b">Valeur</th>
-//                 </tr>
-//               </thead>
-//               <tbody>
-//                 {selectedData.map((row, index) => (
-//                   <tr key={index}>
-//                     <td className="py-2 px-4 border-b">{row.Date}</td>
-//                     <td className="py-2 px-4 border-b">{row.Valeur}</td>
-//                   </tr>
-//                 ))}
-//               </tbody>
-//             </table>
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GrapheSection;
