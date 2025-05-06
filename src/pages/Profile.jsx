@@ -1,71 +1,3 @@
-// import React, { useState } from 'react';
-// import CustomSidebar from '../components/CustomSidebar';
-// import { ProSidebarProvider } from 'react-pro-sidebar';
-// import ProfileImage from '../components/profilComponent/ProfileImage';
-// import RightBox from '../components/profilComponent/RightBox'; // Import du nouveau composant RightBox
-
-// const Profile = () => {
-//   const [profilePic, setProfilePic] = useState('https://via.placeholder.com/150');
-//   const [selectedDate, setSelectedDate] = useState(new Date());
-  
-//   // Dernière activité (par exemple, la date la plus récente de paiement ou autre)
-//   const lastActivityDate = new Date(2025, 3, 18); // Exemple de date de dernière activité
-
-//   const payments = [
-//     { date: '2025-04-01', amount: '230000 DA' },
-//     { date: '2025-04-10', amount: '750000 DA' },
-//     { date: '2025-04-18', amount: '10050 DA' },
-//   ];
-
-//   const handleImageChange = (e) => {
-//     const file = e.target.files[0];
-//     if (file) {
-//       const reader = new FileReader();
-//       reader.onloadend = () => {
-//         setProfilePic(reader.result);
-//       };
-//       reader.readAsDataURL(file);
-//     }
-//   };
-
-//   const totalPayments = payments.reduce((acc, payment) => {
-//     const amountNumber = parseFloat(payment.amount.replace(' DA', '').replace('DA', '').replace(' ', ''));
-//     return acc + amountNumber;
-//   }, 0);
-
-//   return (
-//     <div className="layout-container flex h-screen" style={{ backgroundColor: '#A8ABBE' }}>
-//       <ProSidebarProvider>
-//         <CustomSidebar />
-//       </ProSidebarProvider>
-//       <div className="flex-1 p-8 overflow-auto">
-//         <div className="flex space-x-6 mb-8">
-//           {/* Box 1 (Profil et Image) */}
-//           <div className="w-1/2 rounded-xl p-6 shadow-md text-white" style={{ backgroundColor: '#8D91AB' }}>
-//             <h2 className="text-xl mb-4">Mon Profil</h2>
-//             {/* Affichage de l'image du profil */}
-//             <ProfileImage onImageChange={handleImageChange} />
-//           </div>
-
-//           {/* Box 2 (Dernière activité, Calendrier, Paiements) */}
-//           <RightBox
-//             lastActivityDate={lastActivityDate}
-//             selectedDate={selectedDate}
-//             setSelectedDate={setSelectedDate}
-//             payments={payments}
-//             totalPayments={totalPayments}
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Profile;
- 
-
-
-
 import React, { useState } from 'react';
 import CustomSidebar from '../components/CustomSidebar';
 import { ProSidebarProvider } from 'react-pro-sidebar';
@@ -109,7 +41,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="layout-container flex h-screen" style={{ backgroundColor: '#A8ABBE' }}>
+    <div className="layout-container flex h-screen" style={{ backgroundColor: '#E5E5E5' }}>
       <ProSidebarProvider>
         <CustomSidebar />
       </ProSidebarProvider>
