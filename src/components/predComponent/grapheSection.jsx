@@ -39,7 +39,7 @@ const GrapheSection = () => {
   };
 
   return (
-    <div className="bg-[#dddfef] border-1 border-blue-900 p-6 rounded-2xl shadow-md w-full mb-8  mt-8 flex flex-col">
+    <div className="bg-[#FFFFFF] border-1 border-blue-900 p-6 rounded-2xl shadow-md w-full mb-8  mt-8 flex flex-col">
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full">
         <div>
@@ -58,7 +58,7 @@ const GrapheSection = () => {
         </select>
 
         <button
-          className="mt-4 md:mt-0 flex items-center gap-2 bg-[#2b3260] hover:bg-[#414771] text-white font-semibold py-2 px-4 rounded transition duration-300"
+          className="mt-4 md:mt-0 flex items-center gap-2 bg-[#162556] text-white font-semibold py-2 px-4 rounded transition duration-300"
           onClick={downloadPDF}
         >
           <Download size={20} />
@@ -67,15 +67,15 @@ const GrapheSection = () => {
       </div>
 
       {/* Partie affichage : Graphique ou Tableau */}
-      <div ref={chartRef} className="mt-8 w-full min-h-72 bg-[#dddfef]  p-4 rounded-lg style={{ backgroundColor: 'white' }}  ">
+      <div ref={chartRef} className="mt-8 w-full min-h-72 bg-[#FFFFFF]  p-4 rounded-lg style={{ backgroundColor: 'white' }}  ">
         {displayMode === 'graph' ? (
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="Date" />
-              <YAxis />
+              <CartesianGrid stroke="#878fad" />
+              <XAxis dataKey="date" stroke="#424769" />
+              <YAxis stroke="#424769" />
               <Tooltip />
-              <Line type="monotone" dataKey="Valeur" stroke="#2563eb" strokeWidth={3} />
+              <Line type="monotone" dataKey="Valeur" stroke="#424769" strokeWidth={3} />
             </LineChart>
           </ResponsiveContainer>
         ) : (
@@ -104,15 +104,15 @@ const GrapheSection = () => {
         {/* Bouton pour ouvrir le modal de confirmation */}
         <button 
           onClick={() => setIsConfirmModalOpen(true)}
-          className="bg-[#2b3260] hover:bg-[#414771] text-white py-2 px-4 rounded-lg"
+          className="bg-[]  text-white py-2 px-4 rounded-lg"
         >
           Choisir ce modèle
         </button>
 
         {/* Bouton pour afficher le formulaire de paiement */}
         <button 
-          onClick={() => setShowPaymentForm(!showPaymentForm)}
-          className="bg-[#ca9045d8]  hover:bg-green-700 text-white py-2 px-4 rounded-lg"
+          // onClick={() => setShowPaymentForm(!showPaymentForm)}
+          className="bg-[#FCB17A]  text-white py-2 px-4 rounded-lg"
         >
           Acheter ce modèle
         </button>
@@ -147,7 +147,7 @@ const GrapheSection = () => {
       )}
 
       {/* Formulaire de paiement (affiché sous les boutons) */}
-      {showPaymentForm && (
+      {/* {showPaymentForm && (
         
         
         <div 
@@ -200,7 +200,7 @@ const GrapheSection = () => {
             </div>
           </form>
         </div>
-      )}
+      )} */}
 
     </div>
   );

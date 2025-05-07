@@ -30,7 +30,7 @@ const RealVsPredictedGraph = () => {
             <Line
               type="monotone"
               dataKey="real"
-              stroke="#ffffff"
+              stroke="#8D91AB"
               strokeWidth={2}
               dot
               name="Réel"
